@@ -10,12 +10,13 @@ export default function Navbar() {
   const [screen, setScreen] = useState("");
   const [dropStatus, setDropStatus] = useState(false);
   useLayoutEffect(() => {
-    window.addEventListener("resize", ({ target }) => {
-      target.innerWidth < 1200 ? setScreen("mobile") : setScreen("desktop");
-    });
+    window &&
+      window.addEventListener("resize", ({ target }) => {
+        target.innerWidth < 1200 ? setScreen("mobile") : setScreen("desktop");
+      });
   }, []);
   return (
-    <header className="h-[80px] p-3 items-center ">
+    <header className="h-[80px] items-center ">
       <nav className="h-full flex items-center  justify-between">
         <Link href="/">
           <div>
@@ -24,7 +25,7 @@ export default function Navbar() {
         </Link>
         <div className="flex gap-10 items-center">
           <ListLinks dropStatus={dropStatus} />
-          {window.innerWidth < 1200 && (
+          {window && window.innerWidth < 1200 && (
             <div className="flex items-center gap-5">
               <div
                 onClick={() => setDropStatus(!dropStatus)}

@@ -96,8 +96,10 @@ export default function RootLayout({ children }) {
       </head>
 
       <body className={inter.className}>
-        <Navbar />
-        {children}
+        <div className="sm:px-[40px] px-[20px]">
+          <Navbar />
+          {children}
+        </div>
       </body>
     </html>
   );
