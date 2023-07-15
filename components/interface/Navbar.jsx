@@ -1,5 +1,5 @@
 "use client";
-import React, { useLayoutEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import Logo from "../../public/assets/logo/LOGO.svg";
 import Image from "next/image";
 import { MdFilterList } from "react-icons/md";
@@ -15,6 +15,7 @@ export default function Navbar() {
         target.innerWidth < 1200 ? setScreen("mobile") : setScreen("desktop");
       });
   }, []);
+
   return (
     <header className="h-[80px] items-center ">
       <nav className="h-full flex items-center  justify-between">
