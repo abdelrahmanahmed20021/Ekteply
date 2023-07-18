@@ -12,22 +12,12 @@ export const Box = styled.div`
   width: ${({ width }) => width};
   height: ${({ height }) => height};
   position: absolute;
+  position: ${({ position }) => position};
+  transition: height 0.5s ease;
   top: ${({ top }) => top};
   right: ${(right) => right};
+  border-radius: 5px;
   transform: translate(-${({ right }) => right}, ${({ top }) => top});
-  border: 5px solid #fff;
-  @media screen and (min-width: 667px) and (max-width: 1190px) {
-    width: 300px;
-    height: 300px;
-    top: ${({ topmd }) => topmd};
-    right: ${({ rightmd }) => rightmd};
-    transform: translate(-${({ rightmd }) => rightmd}, ${({ topmd }) => topmd});
-  }
-  @media screen and (min-width: 200px) and (max-width: 666px) {
-    width: 150px;
-    height: 150px;
-    top: ${({ topsm }) => topsm};
-    right: ${({ rightsm }) => rightsm};
-    transform: translate(-${({ rightsm }) => rightsm}, ${({ topsm }) => topsm});
-  }
+  border: 4px solid #164b60;
+  overflow: auto;
 `;
