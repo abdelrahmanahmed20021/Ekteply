@@ -12,11 +12,11 @@ const Container = styled.div`
 
 export default function LandingText() {
   return (
-    <Container className="w-full lg:w-1/2">
+    <Container className="w-full lg:w-1/2  h-full">
       <h1 className="lg:text-[5rem] md:text-[4rem] text-[2rem] text-main-900">
         Create Professional <br /> Documents in Minutes
       </h1>
-      <p className="text-main-700 text-[13px] sm:text-[1.3rem] leading-6 sm:leading-8">
+      <p className="text-main-700 text-[13px] sm:text-[1.1rem] leading-6 sm:leading-8">
         Create stunning reports, professional emails, and captivating job offers
         with ease using Ekteply, the ultimate web application that brings
         efficiency and convenience to your document creation tasks. With our
