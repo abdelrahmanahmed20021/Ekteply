@@ -17,7 +17,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="h-[80px] items-center ">
+    <header className="h-[70px] fixed px-4 bg-interface-700 top-0 left-0 right-0 items-center">
       <nav className="h-full flex items-center  justify-between">
         <Link href="/">
           <div>

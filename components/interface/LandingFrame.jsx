@@ -1,6 +1,10 @@
 "use client";
 import { Box, Container } from "@/app/styles/LFStyled";
-import { boxes_styles_sm, initTyping } from "@/utils/init_LandingFrame";
+import {
+  boxes_styles_sm,
+  initTyping,
+  initTypingSm,
+} from "@/utils/init_LandingFrame";
 import { Tajawal } from "next/font/google";
 import React, { useEffect, useRef, useState } from "react";
 import { BsArrow90DegRight } from "react-icons/bs";
@@ -20,23 +24,23 @@ export default function LandingFrame() {
   const handelStyle = (index) => {
     if (index == activeBox) {
       return {
-        top: "100px",
-        right: "180px",
-        zIndex: "20",
+        top: "50px",
+        right: "100px",
+        zindex: "20",
         animation: "scalebale 1 ease 1s",
       };
     }
     if (index == 1) {
       return {
-        top: "60px",
-        right: "40px",
-        zIndex: "5",
+        top: "10px",
+        right: "20px",
+        zindex: "5",
       };
     } else if (index == 2) {
       return {
-        top: "80px",
-        right: "90px",
-        zIndex: "10",
+        top: "30px",
+        right: "60px",
+        zindex: "10",
       };
     }
   };
@@ -60,7 +64,7 @@ export default function LandingFrame() {
       return typed;
     });
     const typedSmallInstances = new Typed(smallScreenRefs.current, {
-      ...initTyping(0),
+      ...initTypingSm(0, 1, 2),
       loop: true,
     });
 
@@ -84,7 +88,7 @@ export default function LandingFrame() {
         <Box
           key={i}
           {...handelStyle(i)}
-          className="hidden lg:block pt-5 px-3 font-bold text-main-900 font-resume"
+          className="hidden lg:w-[350px] lg:h-[500px] 2xl:w-[400px] 2xl:h-[500px] lg:block pt-5 px-3 font-bold text-main-900 font-resume"
         >
           <div className="flex items-end gap-1">
             <span

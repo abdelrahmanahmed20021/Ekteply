@@ -5,7 +5,7 @@ import { styled } from "styled-components";
 const Container = styled.div`
   display: flex;
   gap: 30px;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
   flex-direction: column;
 `;
@@ -13,10 +13,10 @@ const Container = styled.div`
 export default function LandingText() {
   return (
     <Container className="w-full lg:w-1/2  h-full">
-      <h1 className="lg:text-[5rem] md:text-[4rem] text-[2rem] text-main-900">
+      <h1 className="lg:text-[3rem] 2xl:text-[5rem] md:text-[4rem] text-[2rem] text-main-900">
         Create Professional <br /> Documents in Minutes
       </h1>
-      <p className="text-main-700 text-[13px] sm:text-[1.1rem] leading-6 sm:leading-8">
+      <p className="text-main-700 lg:text-[16px] xl:[1.3rem] text-[13px] sm:text-[1.1rem] leading-6 sm:leading-8">
         Create stunning reports, professional emails, and captivating job offers
         with ease using Ekteply, the ultimate web application that brings
         efficiency and convenience to your document creation tasks. With our

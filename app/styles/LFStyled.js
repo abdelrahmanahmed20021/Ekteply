@@ -7,15 +7,15 @@ export const Container = styled.div`
 `;
 
 export const Box = styled.div`
-  width: 400px;
+  /* width: 400px;
   height: 500px;
   width: ${({ width }) => width};
-  height: ${({ height }) => height};
-  z-index: ${({ zIndex }) => zIndex};
+  height: ${({ height }) => height}; */
+  z-index: ${({ zindex }) => zindex};
   position: absolute;
   position: ${({ position }) => position};
   transition: height 0.5s ease;
-  top: 70px;
+  top: 30px;
   right: 10px;
   top: ${({ top }) => top};
   right: ${(right) => right};
