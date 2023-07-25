@@ -13,7 +13,7 @@ const Container = styled.div`
 export default function LandingText() {
   return (
     <Container className="w-full lg:w-1/2  h-full">
-      <h1 className="lg:text-[3rem] 2xl:text-[5rem] md:text-[4rem] text-[2rem] text-main-900">
+      <h1 className="lg:text-[3rem] font-bold 2xl:text-[5rem] md:text-[4rem] text-[2rem] text-main-900">
         Create Professional <br /> Documents in Minutes
       </h1>
       <p className="text-main-700 lg:text-[16px] xl:[1.3rem] text-[13px] sm:text-[1.1rem] leading-6 sm:leading-8">

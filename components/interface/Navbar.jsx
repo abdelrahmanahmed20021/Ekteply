@@ -17,7 +17,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="h-[70px] fixed px-4 bg-interface-700 top-0 left-0 right-0 items-center">
+    <header className="h-[70px]  top-0 left-0 right-0 items-center">
       <nav className="h-full flex items-center  justify-between">
         <Link href="/">
           <div>
@@ -26,7 +26,7 @@ export default function Navbar() {
         </Link>
         <div className="flex gap-10 items-center">
           <ListLinks dropStatus={dropStatus} />
-          {window && window.innerWidth < 1200 && (
+          {typeof window !== "undefined" && window.innerWidth < 1200 && (
             <div className="flex items-center gap-5">
               <div
                 onClick={() => setDropStatus(!dropStatus)}

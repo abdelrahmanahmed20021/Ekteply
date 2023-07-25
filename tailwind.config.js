@@ -81,6 +81,11 @@ module.exports = {
           900: "#00000096",
           800: "#40353594",
         },
+        social: {
+          WhattsUp: "#1AC33F",
+          Twitter: "#0077B5",
+          LINKEDIN: "#1DA1F2",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

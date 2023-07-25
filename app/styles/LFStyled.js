@@ -4,6 +4,7 @@ export const Container = styled.div`
   display: flex;
   position: relative;
   flex-direction: column;
+  min-height: 50%;
 `;
 
 export const Box = styled.div`

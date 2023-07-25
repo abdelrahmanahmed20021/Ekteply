@@ -1,10 +1,6 @@
 "use client";
 import { Box, Container } from "@/app/styles/LFStyled";
-import {
-  boxes_styles_sm,
-  initTyping,
-  initTypingSm,
-} from "@/utils/init_LandingFrame";
+import { initTyping, initTypingSm } from "@/utils/init_LandingFrame";
 import { Tajawal } from "next/font/google";
 import React, { useEffect, useRef, useState } from "react";
 import { BsArrow90DegRight } from "react-icons/bs";
@@ -18,14 +14,14 @@ const tajawal = Tajawal({
 
 export default function LandingFrame() {
   const boxesRefs = [1, 2, 3].map(() => useRef(null));
-  const smallScreenRefs = useRef(null);
+  const smBoxesRefs = [1, 2, 3].map(() => useRef(null));
   const [activeBox, setActiveBox] = useState(0);
 
-  const handelStyle = (index) => {
+  const handelStyle = (index, screen = "lg") => {
     if (index == activeBox) {
       return {
         top: "50px",
-        right: "100px",
+        right: screen == "lg" ? "100px" : "60px",
         zindex: "20",
         animation: "scalebale 1 ease 1s",
       };
@@ -33,13 +29,14 @@ export default function LandingFrame() {
     if (index == 1) {
       return {
         top: "10px",
-        right: "20px",
+        right: screen == "lg" ? "20px" : "10px",
+
         zindex: "5",
       };
     } else if (index == 2) {
       return {
         top: "30px",
-        right: "60px",
+        right: screen == "lg" ? "60px" : "30px",
         zindex: "10",
       };
     }
@@ -63,15 +60,20 @@ export default function LandingFrame() {
       });
       return typed;
     });
-    const typedSmallInstances = new Typed(smallScreenRefs.current, {
-      ...initTypingSm(0, 1, 2),
-      loop: true,
+
+    const typedSmallInstances = smBoxesRefs.reverse().map((ref, index) => {
+      const typed = new Typed(ref.current, {
+        ...initTyping(index),
+        loop: true,
+        bindInputFocusEvents: true,
+      });
+      return typed;
     });
 
     // Destroy Typed instances during cleanup to stop animation
     return () => {
       typedInstances.forEach((typed) => typed.destroy());
-      typedSmallInstances.destroy();
+      typedSmallInstances.forEach((typed) => typed.destroy());
     };
   }, []);
 
@@ -80,7 +82,7 @@ export default function LandingFrame() {
       <button
         onClick={slide}
         style={{ transition: "all ease .5s" }}
-        className="fixed hidden lg:flex bg-main-900 text-light-900  right-10 w-[30px]  justify-center items-center h-[30px] hover:bg-interface-900 hover:text-interface-700 rounded-[30px]  bottom-10"
+        className="fixed flex z-50 md:right-10 md:bottom-10 bottom-3 lg:flex bg-main-900 text-light-900  right-5 w-[30px]  justify-center items-center h-[30px] hover:bg-interface-900 hover:text-interface-700 rounded-[30px] "
       >
         <HiOutlineArrowSmallRight />
       </button>
@@ -106,26 +108,27 @@ export default function LandingFrame() {
           </div>
         </Box>
       ))}
-      <Box
-        {...boxes_styles_sm}
-        height={"300px"}
-        className=" lg:hidden z-0 pt-5 px-3 font-bold text-main-900 font-resume"
-      >
-        <div className="flex items-end gap-1">
-          <span
-            className="typed-cursor text-lg text-main-900  typed-cursor--blink"
-            aria-hidden="true"
-          >
-            <BsArrow90DegRight size={"13px"} />
-          </span>
-          <span
-            type="text"
-            ref={smallScreenRefs}
-            className={tajawal.className}
-            style={{ fontSize: "13px" }}
-          ></span>
-        </div>
-      </Box>
+      {smBoxesRefs.map((e, i) => (
+        <Box
+          {...handelStyle(i, "small")}
+          className=" lg:hidden w-[60%] h-[200px] md:h-[400px] z-0 pt-5 px-3 font-bold text-main-900 font-resume"
+        >
+          <div className="flex items-end gap-1">
+            <span
+              className="typed-cursor text-lg text-main-900  typed-cursor--blink"
+              aria-hidden="true"
+            >
+              <BsArrow90DegRight size={"13px"} />
+            </span>
+            <span
+              type="text"
+              ref={smBoxesRefs[i]}
+              className={tajawal.className}
+              style={{ fontSize: "13px" }}
+            ></span>
+          </div>
+        </Box>
+      ))}
     </Container>
   );
 }
